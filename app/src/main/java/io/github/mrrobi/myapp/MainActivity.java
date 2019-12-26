@@ -31,8 +31,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void go(View view) {
-        Intent intent = new Intent(MainActivity.this, facebook2.class);
-        startActivity(intent);
+        startActivity(getPackageManager().getLaunchIntentForPackage("com.facebook.katana"));
     }
     public void WA(View view) {
         startActivity(getPackageManager().getLaunchIntentForPackage("com.whatsapp"));
