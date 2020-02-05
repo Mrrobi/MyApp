@@ -1,10 +1,14 @@
 package io.github.mrrobi.myapp;
 
+import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -23,29 +27,87 @@ public class MainActivity extends AppCompatActivity
 
 
     public void chrome(View view) {
-        startActivity(getPackageManager().getLaunchIntentForPackage("com.android.chrome"));
+        if (!openApp(MainActivity.this, "com.android.chrome")) {
+            launchPlayStoreWithAppPackage(MainActivity.this, "com.android.chrome");
+        }
+        //startActivity(getPackageManager().getLaunchIntentForPackage("com.android.chrome"));
     }
 
     public void messenger(View view) {
-        startActivity(getPackageManager().getLaunchIntentForPackage("com.facebook.orca"));
+        if (!openApp(MainActivity.this, "com.facebook.orca")) {
+            launchPlayStoreWithAppPackage(MainActivity.this, "com.facebook.orca");
+        }
+        //startActivity(getPackageManager().getLaunchIntentForPackage("com.facebook.orca"));
     }
 
     public void go(View view) {
-        startActivity(getPackageManager().getLaunchIntentForPackage("com.facebook.katana"));
+        if (!openApp(MainActivity.this, "com.facebook.katana")) {
+            launchPlayStoreWithAppPackage(MainActivity.this, "com.facebook.katana");
+        }
+        //startActivity(getPackageManager().getLaunchIntentForPackage("com.facebook.katana"));
     }
     public void WA(View view) {
-        startActivity(getPackageManager().getLaunchIntentForPackage("com.whatsapp"));
+        if (!openApp(MainActivity.this, "com.whatsapp")) {
+            launchPlayStoreWithAppPackage(MainActivity.this, "com.whatsapp");
+        }
+        //startActivity(getPackageManager().getLaunchIntentForPackage("com.whatsapp"));
     }
     public void insta(View view) {
-        startActivity(getPackageManager().getLaunchIntentForPackage("com.instagram.android"));
+        if (!openApp(MainActivity.this, "com.instagram.android")) {
+            launchPlayStoreWithAppPackage(MainActivity.this, "com.instagram.android");
+        }
+        //startActivity(getPackageManager().getLaunchIntentForPackage("com.instagram.android"));
+    }
+    public void youtube(View view) {
+        if (!openApp(MainActivity.this, "com.google.android.youtube")) {
+            launchPlayStoreWithAppPackage(MainActivity.this, "com.google.android.youtube");
+        }
+        //startActivity(getPackageManager().getLaunchIntentForPackage("com.google.android.youtube"));
+    }
+
+    public static boolean openApp(Context context, String packageName) {
+        PackageManager manager = context.getPackageManager();
+        try {
+            Intent i = manager.getLaunchIntentForPackage(packageName);
+            if (i == null) {
+                return false;
+                //throw new ActivityNotFoundException();
+            }
+            i.addCategory(Intent.CATEGORY_LAUNCHER);
+            context.startActivity(i);
+            return true;
+        } catch (ActivityNotFoundException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Open another app.
+     *
+     * @param context     current Context, like Activity, App, or Service
+     * @param packageName the full package name of the app to open
+     */
+    public static void launchPlayStoreWithAppPackage(Context context, String packageName) {
+        Intent i = new Intent(android.content.Intent.ACTION_VIEW);
+        i.setData(Uri.parse("https://play.google.com/store/apps/details?id=" + packageName));
+        context.startActivity(i);
+    }
+    public  void check(){
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        finish();
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (AppCompatDelegate.getDefaultNightMode()
+                ==AppCompatDelegate.MODE_NIGHT_YES) {
+            setTheme(R.style.AppTheme);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        //check();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,17 +185,35 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-            startActivity(getPackageManager().getLaunchIntentForPackage("com.moodle.classic"));
+            if (!openApp(MainActivity.this, "com.moodle.moodlemobile")) {
+                launchPlayStoreWithAppPackage(MainActivity.this, "com.moodle.moodlemobile");
+            }
+            //startActivity(getPackageManager().getLaunchIntentForPackage("com.moodle.moodlemobile"));
         } else if (id == R.id.nav_gallery) {
-            startActivity(getPackageManager().getLaunchIntentForPackage("com.miui.gallery"));
+            if (!openApp(MainActivity.this, "com.android.gallery3d")) {
+                launchPlayStoreWithAppPackage(MainActivity.this, "com.android.gallery3d");
+            }
+            //startActivity(getPackageManager().getLaunchIntentForPackage("com.android.gallery3d"));
         } else if (id == R.id.nav_slideshow) {
-            startActivity(getPackageManager().getLaunchIntentForPackage("com.miui.notes"));
+            if (!openApp(MainActivity.this, "com.google.android.keep")) {
+                launchPlayStoreWithAppPackage(MainActivity.this, "com.google.android.keep");
+            }
+            //startActivity(getPackageManager().getLaunchIntentForPackage("com.google.android.keep"));
         } else if (id == R.id.nav_manage) {
-            startActivity(getPackageManager().getLaunchIntentForPackage("com.android.settings"));
+            if (!openApp(MainActivity.this, "com.android.settings")) {
+                launchPlayStoreWithAppPackage(MainActivity.this, "com.android.settings");
+            }
+            //startActivity(getPackageManager().getLaunchIntentForPackage("com.android.settings"));
         } else if (id == R.id.nav_share) {
-            startActivity(getPackageManager().getLaunchIntentForPackage("com.xiaomi.midrop"));
+            if (!openApp(MainActivity.this, "com.duokan.phone.remotecontroller")) {
+                launchPlayStoreWithAppPackage(MainActivity.this, "com.duokan.phone.remotecontroller");
+            }
+            //startActivity(getPackageManager().getLaunchIntentForPackage("com.duokan.phone.remotecontroller"));
         } else if (id == R.id.nav_send) {
-            startActivity(getPackageManager().getLaunchIntentForPackage("com.android.mms"));
+            if (!openApp(MainActivity.this, "com.android.messaging")) {
+                launchPlayStoreWithAppPackage(MainActivity.this, "com.android.messaging");
+            }
+            //startActivity(getPackageManager().getLaunchIntentForPackage("com.android.messaging"));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

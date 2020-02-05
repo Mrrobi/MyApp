@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <vector xmlns:android="http://schemas.android.com/apk/res/android"
+            android:width="346dp"
+            android:height="233dp"
+            android:viewportWidth="346"
+            android:viewportHeight="233">
+            <path
+                android:fillColor="#FF0000"
+                android:name="Shape 1"
+                android:pathData="m143.04 3.18c26.44 0.26 52.88 0.52 79.32 0.77c14.18 0.52 28.37 1.03 42.55 1.55c25.15 3.86 46.36 1.22 61.97 12.75c10.3 7.61 13.13 18.83 16.11 33.62c3.03 15.05 2.48 34.72 2.48 52.93c0 41.82 5.67 94.11 -20.24 112.05c-23.33 16.15 -66.52 7.7 -102.04 13.14c-7.57 0 -15.15 0 -22.72 0c-15.56 0.13 -31.12 0.26 -46.68 0.39c-42.42 0 -119.61 1.58 -137.57 -19.71c-16.46 -19.51 -17.67 -74.91 -15.29 -110.51c1.7 -25.35 0.07 -54.76 11.15 -71.87c18.33 -28.3 56.53 -18.26 96.26 -24.34c11.57 -0.26 23.14 -0.52 34.7 -0.77zm-3.72 65.3c0.14 32.2 0.28 64.4 0.41 96.6c29.88 -16.1 59.77 -32.2 89.65 -48.3c0 -0.13 0 -0.26 0 -0.39c-30.02 -15.97 -60.04 -31.94 -90.06 -47.91z" />
+        </vector>
+    </item>
+
+    <item android:state_enabled="true">
+        <vector xmlns:android="http://schemas.android.com/apk/res/android"
+            android:width="346dp"
+            android:height="233dp"
+            android:viewportWidth="346"
+            android:viewportHeight="233">
+            <path
+                android:fillColor="?attr/colorAccent"
+                android:name="Shape 1"
+                android:pathData="m143.04 3.18c26.44 0.26 52.88 0.52 79.32 0.77c14.18 0.52 28.37 1.03 42.55 1.55c25.15 3.86 46.36 1.22 61.97 12.75c10.3 7.61 13.13 18.83 16.11 33.62c3.03 15.05 2.48 34.72 2.48 52.93c0 41.82 5.67 94.11 -20.24 112.05c-23.33 16.15 -66.52 7.7 -102.04 13.14c-7.57 0 -15.15 0 -22.72 0c-15.56 0.13 -31.12 0.26 -46.68 0.39c-42.42 0 -119.61 1.58 -137.57 -19.71c-16.46 -19.51 -17.67 -74.91 -15.29 -110.51c1.7 -25.35 0.07 -54.76 11.15 -71.87c18.33 -28.3 56.53 -18.26 96.26 -24.34c11.57 -0.26 23.14 -0.52 34.7 -0.77zm-3.72 65.3c0.14 32.2 0.28 64.4 0.41 96.6c29.88 -16.1 59.77 -32.2 89.65 -48.3c0 -0.13 0 -0.26 0 -0.39c-30.02 -15.97 -60.04 -31.94 -90.06 -47.91z" />
+        </vector>
+    </item>
+</selector>
